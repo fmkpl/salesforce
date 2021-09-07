@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-box"> 
+        <lightning-card title="Property Visit creating">
+            <div onkeyup={handleClientNameChange} class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" 
+                            label="Client contact reference" 
+                            name="inputForClientRef" 
+                            placeholder="Enter Client contact last name..."></lightning-input>
+            </div>
+            
+            <div onkeyup={handleDateInput} class="slds-p-around_medium lgc-bg">
+                <lightning-input type="date"
+                                label="Date"
+                                name="inputDate"
+                                placeholder="Enter date..."
+                                value={todayDateKey}></lightning-input>
+            </div>
+            <p>Select property:</p>
+                <lightning-datatable key-field="Id" 
+                                    data={props.data}
+                                    columns={columns}
+                                    onrowselection={getSelectedName}></lightning-datatable>
+                
+        </lightning-card>
+    </div>
+    <div class="slds-float_right">
+        <lightning-button label="Create Property Visit" variant="brand" onclick={createPropertyVisit}></lightning-button>
+    </div>
+</template>

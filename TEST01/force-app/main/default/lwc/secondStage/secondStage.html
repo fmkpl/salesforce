@@ -1,0 +1,37 @@
+<template>
+    <div class="slds-box">
+    <lightning-card title="Proposal creating">
+        <div onkeyup={handleClientNameChange} class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" 
+                         label="Client contact reference" 
+                         name="inputForClientRef" 
+                         placeholder="Enter Client contact last name..."></lightning-input>
+        </div>
+
+        <div onkeyup={handlePartnerAgentNameChange} class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text"
+                         label="Partner Agent contact reference" 
+                         name="inputForPartnerAgentRef" 
+                         placeholder="Enter Partner Agent contact last name..."></lightning-input>
+        </div>
+
+        <div onkeyup={handlePriceKeyChange} class="slds-p-around_medium lgc-bg">
+            <lightning-input type="number"
+                        label="Field for Agreed price (more than or equals)"
+                        name="inputForPrice"
+                        formatter="currency"
+                        step="0.01"
+                        placeholder="Enter agreed price here..."></lightning-input>
+        </div>   
+        <p>Select property:</p>             
+        <lightning-datatable key-field="Id" 
+                            data={props.data}
+                            columns={columns}
+                            onrowselection={getSelectedName}></lightning-datatable>
+            
+    </lightning-card>
+    </div>
+    <div class="slds-float_right">
+        <lightning-button label="Create Proposal" variant="brand" onclick={createProposal}></lightning-button>
+    </div>
+</template>

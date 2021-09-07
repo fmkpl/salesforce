@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-box"> 
+        <lightning-card title="Property Visit table">
+            <lightning-datatable key-field="Id" 
+                                data={props.data}
+                                columns={columns}
+                                onrowselection={getSelectedName}></lightning-datatable>
+        </lightning-card>
+    </div>
+</template>
